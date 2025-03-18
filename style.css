@@ -1,0 +1,81 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styling */
+  body {
+    font-family: Arial, sans-serif;
+    color: white; /* Change text color to white for better contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-image: url('background.jpg'); /* Add background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+  }
+  
+  /* Header and Logo */
+  header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0); /* Fully transparent background */
+    justify-content: space-around;
+    padding: 8px 0;
+  }
+
+  
+  .menu a {
+    text-decoration: none;
+    color: #ffd3d3;
+    font-size: 1.2rem;
+  }
+  
+  .menu a:hover {
+    color: #55555500;
+  }
+  
+  /* Main Content */
+  main h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  main p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ffffff00;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #55555500;
+  }
