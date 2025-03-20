@@ -1,0 +1,221 @@
+/* Disable scrolling during loading */
+body.loading {
+  overflow: hidden;
+}
+
+/* Enable scrolling after loading */
+body.loaded {
+  overflow: auto;
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Syne Mono', monospace;
+  color: white;
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Background Image */
+.background {
+  position: fixed; /* Fixed background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Logo and Menu */
+.logo-menu {
+  position: fixed; /* Fixed position */
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  opacity: 0; /* Start invisible */
+  visibility: hidden; /* Hide during loading */
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+/* Show logo and menu after loading */
+body.loaded .logo-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.5);
+}
+
+.menu {
+  display: none; /* Hide menu by default */
+  margin-left: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+.logo-menu:hover .menu {
+  display: flex; /* Show menu on hover */
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 25px;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.menu a:hover {
+  opacity: 0.7;
+}
+
+/* Main Content (Homepage) */
+/* Main Content (Homepage) */
+.content {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  opacity: 0; /* Start invisible */
+  transition: opacity 1s ease;
+}
+
+.content.show {
+  opacity: 1; /* Fade in after loading */
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.typewriter {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background: white;
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Page Sections */
+.page-section {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Loading Screen */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of everything */
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+#loading-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.loading-progress {
+  width: 0;
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+  animation: load 1.5s linear forwards;
+}
+
+@keyframes load {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Portfolio Button */
+.portfolio-button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: 'Syne Mono', monospace;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.portfolio-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.portfolio-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.portfolio-button:hover {
+  transform: scale(1.1);
+}
